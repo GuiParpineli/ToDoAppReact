@@ -1,0 +1,86 @@
+.App {
+  display: flex;
+  text-align: center;
+  color: white;
+}
+
+.btn-signup {
+  
+  padding: .6em;
+  color: rgb(149, 0, 255);
+  margin: 10px;
+  border-radius: 10px;
+  border: 0;
+  width: 50%;
+}
+
+
+.imgContainer {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.imgContainer h1 {
+  color: rgb(149, 0, 255);
+  width: 100%;
+  margin-bottom: 0;
+}
+.imgContainer p {
+  color: #0800ff;
+  width: 100%;
+}
+
+.containerForm {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100vh;
+  background: rgb(13, 1, 64);
+  background: linear-gradient(128deg, rgba(13, 1, 64, 1) 0%, rgba(149, 0, 255, 1) 42%, #0800ff 100%);
+}
+
+form input {
+  border: 0px;
+  width: 200%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 10px;
+  height: 2.5em;
+  border-radius: 15px;
+
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+form label {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-submit {
+  margin-top: 2em;
+  padding: 10px;
+}
+
+.btn-submit button {
+  padding: 15px;
+  border-radius: 25px;
+  border: 0px;
+  width: 200%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: rgb(255, 136, 0);
+  color: white;
+}
