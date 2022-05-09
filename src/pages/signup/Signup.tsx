@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { ErrorList, ErrorProps } from '../../components/error/Error'
 import './signup.css'
 
@@ -16,26 +16,15 @@ export function Signup() {
   const [passwordUser, setUserPassword] = useState<string>('');
   const [errorInput, setErrorInput] = useState<ErrorProps>({} as ErrorProps);
 
+
+  /* useEffect(validate,[errorInput]) */
   function validate() {
-    
-    if (nameUser === '') {
-      setErrorInput({ name: 'Campo Obrigatorio'})
-    }
-    else if (emailUser === '') {
-      setErrorInput({ email: 'Campo Obrigatorio'})
-    }
-    else if (passwordUser === '') {
-      setErrorInput({ password: 'Campo Obrigatorio'})
-    }
-    
-    else {
-      setErrorInput({
-        name: '',
-        email: '',
-        password: '',
-        passwordConfirm: '',
-      })
-    }
+
+    nameUser === '' ? setErrorInput(prevState => ({ ...prevState, name: 'Campo Obrigatorio' })) : setErrorInput({ name: '' })
+
+    emailUser === '' ? setErrorInput(prevState => ({ ...prevState, email: 'Campo Obrigatorio' })) : setErrorInput({ email: '' })
+
+    passwordUser === '' ? setErrorInput(prevState => ({ ...prevState, password: 'Campo Obrigatorio' })) : setErrorInput({ password: '' })
 
   };
 
@@ -61,6 +50,7 @@ export function Signup() {
       <div className='imgContainer'>
         <img src="src/pages/login/path12.png" width='400px' alt="" />
         <h1>App To Do</h1>
+        <p>Suas Tarefas Organizadas</p>
       </div>
       <div className='containerForm'>
         <form action="">
