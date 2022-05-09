@@ -18,8 +18,8 @@ export function Signup() {
 
   function validate() {
 
-    if (namelUser == '') {
-      setErrorInput('Nome não preenchido')
+    if ((namelUser == '') || (emailUser == '') || (passwordUser == '')){
+      setErrorInput('Campo Obrigatorio')
     }else{
       setErrorInput('')
     }
@@ -52,7 +52,7 @@ export function Signup() {
         <form action="">
 
           <p>Não possui conta?
-            <a href="./login"><button className='btn-login' type='button'>Login</button></a>
+            <a href="./login"><button className='btn-signup' type='button'>Login</button></a>
           </p>
 
           <h1>Cadastra-se:</h1>

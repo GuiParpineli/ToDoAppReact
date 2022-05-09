@@ -1,12 +1,15 @@
+@import url('../../global.css');
+
 .App {
   display: flex;
   text-align: center;
   color: white;
+  height: 100vh;
 }
 
 .btn-login {
   padding: .6em;
-  color: rgb(149, 0, 255);
+  color: var(--primary);
   margin: 10px;
   border-radius: 10px;
   border: 0;
@@ -16,12 +19,8 @@
 
 .imgContainer {
   width: 50%;
+  position: relative;
   color: black;
-  height: 100vh;
-  flex-wrap: wrap;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: white;
 }
 
@@ -30,14 +29,9 @@
 }
 
 .containerForm {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-items: center;
   width: 50%;
-  height: 100vh;
   background: rgb(13, 1, 64);
-  background: linear-gradient(128deg, rgba(13, 1, 64, 1) 0%, rgb(149, 0, 255) 42%, rgba(8, 0, 255, 1) 100%);
+  background: linear-gradient(128deg, rgba(13, 1, 64, 1) 0%, var(--primary) 42%, var(--secondary) 100%);
 }
 
 form input {
@@ -50,7 +44,6 @@ form input {
   padding: 10px;
   height: 2.5em;
   border-radius: 15px;
-
 }
 
 h1 {
@@ -64,7 +57,6 @@ form label {
 }
 
 .btn-submit {
-  margin-top: 2em;
   padding: 10px;
 }
 
@@ -81,6 +73,6 @@ form label {
   color: white;
 }
 
-.btn-submit:active{
+.btn-submit:active {
   transform: scale(0.9);
 }

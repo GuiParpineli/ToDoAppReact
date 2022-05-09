@@ -1,3 +1,5 @@
+@import url('../../global.css');
+
 .App {
   display: flex;
   text-align: center;
@@ -5,9 +7,8 @@
 }
 
 .btn-signup {
-  
   padding: .6em;
-  color: rgb(149, 0, 255);
+  color: var(--primary);
   margin: 10px;
   border-radius: 10px;
   border: 0;
@@ -30,8 +31,9 @@
   width: 100%;
   margin-bottom: 0;
 }
+
 .imgContainer p {
-  color: #0800ff;
+  color: var(--secondary);
   width: 100%;
 }
 
@@ -43,7 +45,7 @@
   width: 50%;
   height: 100vh;
   background: rgb(13, 1, 64);
-  background: linear-gradient(128deg, rgba(13, 1, 64, 1) 0%, rgba(149, 0, 255, 1) 42%, #0800ff 100%);
+  background: linear-gradient(128deg, rgba(13, 1, 64, 1) 0%, var(--primary) 42%, var(--secondary) 100%);
 }
 
 form input {
