@@ -11,23 +11,37 @@ export function Signup() {
   }
   const url: string = '';
 
-  const [namelUser, setUserName] = useState('');
-  const [emailUser, setUserEmail] = useState('');
-  const [passwordUser, setUserPassword] = useState('');
-  const [errorInput, setErrorInput] = useState('');
+  const [nameUser, setUserName] = useState<string>('');
+  const [emailUser, setUserEmail] = useState<string>('');
+  const [passwordUser, setUserPassword] = useState<string>('');
+  const [errorInput, setErrorInput] = useState<ErrorProps>({} as ErrorProps);
 
   function validate() {
-
-    if ((namelUser == '') || (emailUser == '') || (passwordUser == '')){
-      setErrorInput('Campo Obrigatorio')
-    }else{
-      setErrorInput('')
+    
+    if (nameUser === '') {
+      setErrorInput({ name: 'Campo Obrigatorio'})
     }
+    else if (emailUser === '') {
+      setErrorInput({ email: 'Campo Obrigatorio'})
+    }
+    else if (passwordUser === '') {
+      setErrorInput({ password: 'Campo Obrigatorio'})
+    }
+    
+    else {
+      setErrorInput({
+        name: '',
+        email: '',
+        password: '',
+        passwordConfirm: '',
+      })
+    }
+
   };
 
 
   const body: Body = {
-    name: namelUser.trim(),
+    name: nameUser.trim(),
     email: emailUser.trim(),
     password: passwordUser.trim(),
   };
@@ -55,7 +69,7 @@ export function Signup() {
             <a href="./login"><button className='btn-signup' type='button'>Login</button></a>
           </p>
 
-          <h1>Cadastra-se:</h1>
+          <h1>Cadastre-se:</h1>
 
           <div>
             <label htmlFor='name'>Nome:</label>
@@ -64,6 +78,9 @@ export function Signup() {
               type='text'
               placeholder='Digite seu nome'
               onChange={e => setUserName(e.target.value)}
+            />
+            < ErrorList
+              name={errorInput.name}
             />
           </div>
 
@@ -75,6 +92,9 @@ export function Signup() {
               placeholder='Digite seu email'
               onChange={e => setUserEmail(e.target.value)}
             />
+            < ErrorList
+              email={errorInput.email}
+            />
           </div>
 
           <div>
@@ -85,6 +105,9 @@ export function Signup() {
               placeholder='Digite sua sennha'
               onChange={e => setUserPassword(e.target.value)}
             />
+            < ErrorList
+              password={errorInput.password}
+            />
           </div>
 
           <div>
@@ -94,11 +117,11 @@ export function Signup() {
               type='password'
               placeholder='Repita sua sennha'
             />
+            < ErrorList
+              passwordConfirm={errorInput.passwordConfirm}
+            />
           </div>
 
-          < ErrorList
-            desc={errorInput}
-          />
 
           <div className='btn-submit'>
             <button
