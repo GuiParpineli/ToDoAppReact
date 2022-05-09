@@ -16,8 +16,6 @@ export function Signup() {
   const [passwordUser, setUserPassword] = useState<string>('');
   const [errorInput, setErrorInput] = useState<ErrorProps>({} as ErrorProps);
 
-
-  /* useEffect(validate,[errorInput]) */
   function validate() {
 
     nameUser === '' ? setErrorInput(prevState => ({ ...prevState, name: 'Campo Obrigatorio' })) : setErrorInput({ name: '' })
@@ -27,7 +25,6 @@ export function Signup() {
     passwordUser === '' ? setErrorInput(prevState => ({ ...prevState, password: 'Campo Obrigatorio' })) : setErrorInput({ password: '' })
 
   };
-
 
   const body: Body = {
     name: nameUser.trim(),
