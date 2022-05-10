@@ -53,7 +53,7 @@ export function Signup() {
         <form action="">
 
           <p>Não possui conta?
-            <a href="./login"><button className='btn-signup' type='button'>Login</button></a>
+            <a href="./"><button className='btn-signup' type='button'>Login</button></a>
           </p>
 
           <h1>Cadastre-se:</h1>
