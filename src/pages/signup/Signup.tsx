@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { ErrorList, ErrorProps } from '../../components/error/Error'
 import './signup.css'
+import imageTodo from '/src/path12.png';
+
+
 
 export function Signup() {
 
@@ -45,7 +48,7 @@ export function Signup() {
   return (
     <div className="App">
       <div className='imgContainer'>
-        <img src="src/pages/login/path12.png" width='400px' alt="" />
+        <img src={imageTodo} width='400px' alt="" />
         <h1>App To Do</h1>
         <p>Suas Tarefas Organizadas</p>
       </div>
