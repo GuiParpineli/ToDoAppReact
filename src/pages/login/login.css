@@ -6,13 +6,13 @@
   color: white;
 }
 
-.btn-signup {
+.btn-login {
   padding: .6em;
   color: var(--primary);
   margin: 10px;
   border-radius: 10px;
   border: 0;
-  width: 50%;
+  width: 25%;
 }
 
 
@@ -59,14 +59,30 @@ form input {
   border-radius: 15px
 }
 
+.mobileTitle{
+  display: none;
+}
 h1 {
   font-size: 2.5em;
 }
+form input {
+  border: 0px;
+  width: 20em;
+  max-width: 25em;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 1.7em;
+  border-radius: 15px;
+}
+
 
 form label {
   padding: 10px;
   display: flex;
   justify-content: center;
+  padding: 1.2em;
+  padding-bottom: .3em;
 }
 
 .btn-submit {
@@ -77,11 +93,39 @@ form label {
 .btn-submit button {
   padding: 15px;
   border-radius: 25px;
+  max-width: 20em;
   border: 0px;
-  width: 200%;
+  width: 20em;
   position: relative;
   left: 50%;
   transform: translate(-50%);
   background-color: rgb(255, 136, 0);
   color: white;
+}
+
+
+.btn-submit:active {
+  transform: scale(0.9);
+}
+
+
+@media screen and (max-width: 720px) {
+  .App {
+    display: block;
+  }
+
+  .imgContainer {
+    display: none;
+  }
+
+  .mobileTitle{
+    display: block;
+    padding: 1em;
+  }
+
+  .containerForm {
+    background: rgb(13, 1, 64);
+    background: linear-gradient(128deg, rgba(13, 1, 64, 1) 0%, var(--primary) 42%, var(--secondary) 100%);
+    width: 100%;
+  }
 }

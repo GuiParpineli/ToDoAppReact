@@ -1,8 +1,13 @@
 import { useState, useEffect } from 'react';
 import { ErrorList, ErrorProps } from '../../components/error/Error'
-import './signup.css'
+import './../login/login.css'
 import imageTodo from '/src/path12.png';
-
+import {
+  Routes,
+  Route,
+  Link,
+  Outlet,
+} from "react-router-dom";
 
 
 export function Signup() {
@@ -14,25 +19,41 @@ export function Signup() {
   }
   const url: string = '';
 
-  const [nameUser, setUserName] = useState<string>('');
-  const [emailUser, setUserEmail] = useState<string>('');
-  const [passwordUser, setUserPassword] = useState<string>('');
+  const [userName, setUserName] = useState<string>('');
+  const [userEmail, setUserEmail] = useState<string>('');
+  const [userPassword, setUserPassword] = useState<string>('');
   const [errorInput, setErrorInput] = useState<ErrorProps>({} as ErrorProps);
 
+
   function validate() {
+    let regExpName = /^([A-z]+[ ]+[A-z]|[A-z])+$/i;
+    let regExpPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/gm;
 
-    nameUser === '' ? setErrorInput(prevState => ({ ...prevState, name: 'Campo Obrigatorio' })) : setErrorInput({ name: '' })
+    if (userName.trim() === '') {
+      setErrorInput(prevState => ({ ...prevState, name: 'Campo Obrigatorio' }))
+    }
 
-    emailUser === '' ? setErrorInput(prevState => ({ ...prevState, email: 'Campo Obrigatorio' })) : setErrorInput({ email: '' })
-
-    passwordUser === '' ? setErrorInput(prevState => ({ ...prevState, password: 'Campo Obrigatorio' })) : setErrorInput({ password: '' })
-
-  };
+    if (userEmail.trim() === '') {
+      setErrorInput(prevState => ({ ...prevState, email: 'Campo Obrigatorio' }))
+    }
+    if (userPassword.trim() === '') {
+      setErrorInput(prevState => ({ ...prevState, password: 'Campo Obrigatorio' }))
+    }
+    else if (!regExpName.test(userName)) {
+      setErrorInput(prevState => ({ ...prevState, name: 'Nome contem caracteres invalidos' }))
+    }
+    else if (!regExpPassword.test(userPassword)) {
+      setErrorInput(prevState => ({ ...prevState, password: 'Senha precisa ter no minimo: 1 Maiscula, 1 Minuscula, 1 caractere especial e 8 digitos ao menos' }))
+    }
+    else {
+      setErrorInput({ name: '', email: '', password: '' })
+    };
+  }
 
   const body: Body = {
-    name: nameUser.trim(),
-    email: emailUser.trim(),
-    password: passwordUser.trim(),
+    name: userName.trim(),
+    email: userEmail.trim(),
+    password: userPassword.trim(),
   };
 
   /*  fetch(url, {
@@ -44,7 +65,6 @@ export function Signup() {
    .then( data => console.log(data))
    .catch( err => console.error(err)) */
 
-
   return (
     <div className="App">
       <div className='imgContainer'>
@@ -54,9 +74,12 @@ export function Signup() {
       </div>
       <div className='containerForm'>
         <form action="">
-
+          <div className='mobileTitle'>
+            <h1 >App To Do</h1>
+            <p>Suas Tarefas Organizadas</p>
+          </div>
           <p>Não possui conta?
-            <a href="./"><button className='btn-signup' type='button'>Login</button></a>
+            <Link to='/ToDoAppReact/'><button className='btn-login' type='button'>Login</button></Link>
           </p>
 
           <h1>Cadastre-se:</h1>
@@ -68,6 +91,7 @@ export function Signup() {
               type='text'
               placeholder='Digite seu nome'
               onChange={e => setUserName(e.target.value)}
+              onBlur={a => a}
             />
             < ErrorList
               name={errorInput.name}

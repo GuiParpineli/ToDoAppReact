@@ -1,8 +1,10 @@
 .error {
+    max-width: 20em;
     margin:0;
     position: relative;
     color: rgb(255, 4, 4);
     top: 1em;
+    padding: .8em;
     font-weight: 500;
 }
 .error p {

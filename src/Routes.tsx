@@ -9,12 +9,12 @@ import { Signup } from './pages/signup/Signup'
 
 export function AppRoutes() {
     return (
-        <BrowserRouter>
+       
             <Routes>
-                <Route path="/" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
+                <Route path="/ToDoAppReact/" element={<Login />} />
+                <Route path="/ToDoAppReact/signup" element={<Signup />} />
                 <Route path="*" element={<h1>Not Found</h1>} />
             </Routes>
-        </BrowserRouter>
+        
     )
 }

@@ -1,6 +1,12 @@
 import { useState } from 'react'
 import './login.css'
 import imageTodo from '/src/path12.png';
+import {
+  Routes,
+  Route,
+  Link,
+  Outlet,
+} from "react-router-dom";
 
 export function Login() {
 
@@ -13,8 +19,12 @@ export function Login() {
       </div>
       <div className='containerForm'>
         <form action="">
+        <div className='mobileTitle'>
+          <h1 >App To Do</h1>
+          <p>Suas Tarefas Organizadas</p>
+          </div>
           <p>Não possui conta?
-            <a href="/signup"><button className='btn-signup' type='button'>Cadastrar</button></a>
+            <Link to='/ToDoAppReact/signup'><button className='btn-login' type='button'>Login</button></Link>
           </p>
           <h1>Faça Login:</h1>
 
