@@ -78,7 +78,7 @@ export function Signup() {
             <h1 >App To Do</h1>
             <p>Suas Tarefas Organizadas</p>
           </div>
-          <p>Não possui conta?
+          <p>Já possui conta?
             <Link to='/ToDoAppReact/'><button className='btn-login' type='button'>Login</button></Link>
           </p>
 
