@@ -29,28 +29,36 @@
     align-items: center;
     justify-content: center;
 }
-.containerNewTask{
+
+.containerNewTask {
     display: flex;
-    flex-direction: row;
     padding: 10px;
-    justify-content: center;
-    gap: 10px;
-}
-.formNewTask {
-    display: flex;
-    width: 20%;
     align-items: center;
     justify-content: center;
 }
+/* .containerNewTask input{
 
-.btn-task{
+} */
+
+.formNewTask {
+    display: flex;
+    align-items: center;  
+}
+.formNewTask label{
+    padding: .5em;
+    font-weight: bold;
+}
+
+
+.btn-task {
     background-color: aqua;
     border: 0;
     padding: 1em;
+    margin: 10px;
     border-radius: 10px;
 }
 
-.tasksNotDone{
+.tasksNotDone {
     background-color: aquamarine;
     border-radius: 20px;
     color: black;
@@ -60,14 +68,14 @@
     transform: translate(-50%);
 }
 
-.cardTask{
+.cardTask {
     display: flex;
     justify-content: center;
 }
 
-.notDone{
+.notDone {
     height: 5em;
-    width: 50%;
+    width: 80%;
     display: flex;
     align-items: center;
     padding: 10px;

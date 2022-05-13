@@ -88,6 +88,9 @@ form label {
 .btn-submit {
   margin-top: 2em;
   padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-submit button {
@@ -96,9 +99,6 @@ form label {
   max-width: 20em;
   border: 0px;
   width: 20em;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
   background-color: rgb(255, 136, 0);
   color: white;
 }

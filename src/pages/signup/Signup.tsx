@@ -22,11 +22,12 @@ export function Signup() {
   const [userName, setUserName] = useState<string>('');
   const [userEmail, setUserEmail] = useState<string>('');
   const [userPassword, setUserPassword] = useState<string>('');
+  const [userPasswordConfirm, setUserPasswordConfirm] = useState<string>('');
   const [errorInput, setErrorInput] = useState<ErrorProps>({} as ErrorProps);
 
 
   function validate() {
-    let regExpName = /^([A-z]+[ ]+[A-z]|[A-z])+$/i;
+    let regExpName = /^.*(?=.*[0-9])/i;
     let regExpPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/gm;
 
     if (userName.trim() === '') {
@@ -39,14 +40,18 @@ export function Signup() {
     if (userPassword.trim() === '') {
       setErrorInput(prevState => ({ ...prevState, password: 'Campo Obrigatorio' }))
     }
-    else if (!regExpName.test(userName)) {
+    else if (regExpName.test(userName)) {
       setErrorInput(prevState => ({ ...prevState, name: 'Nome contem caracteres invalidos' }))
     }
     else if (!regExpPassword.test(userPassword)) {
       setErrorInput(prevState => ({ ...prevState, password: 'Senha precisa ter no minimo: 1 Maiscula, 1 Minuscula, 1 caractere especial e 8 digitos ao menos' }))
     }
+    else if (userPasswordConfirm !== userPassword) {
+      setErrorInput(prevState => ({ ...prevState, passwordConfirm: 'As senhas precisam ser iguais' }))
+    }
     else {
       setErrorInput({ name: '', email: '', password: '' })
+      window.location.href = '/ToDoAppReact/tasks/'
     };
   }
 
@@ -91,7 +96,6 @@ export function Signup() {
               type='text'
               placeholder='Digite seu nome'
               onChange={e => setUserName(e.target.value)}
-              onBlur={a => a}
             />
             < ErrorList
               name={errorInput.name}
@@ -130,6 +134,7 @@ export function Signup() {
               id='passwordConfirm'
               type='password'
               placeholder='Repita sua sennha'
+              onChange={e => setUserPasswordConfirm(e.target.value)}
             />
             < ErrorList
               passwordConfirm={errorInput.passwordConfirm}
